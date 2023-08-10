@@ -1,3 +1,5 @@
+DTC_INCLUDE += $(srctree)/../sm8450-modules/qcom/opensource/cvp-kernel
+
 dtbo-y += diwali-cvp.dtbo
 
 always-y	:= $(dtb-y) $(dtbo-y)
