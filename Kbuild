@@ -1,3 +1,4 @@
+dtbo-y += waipio-vidc.dtbo
 dtbo-y += ukee-vidc.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
