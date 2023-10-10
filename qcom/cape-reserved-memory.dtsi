@@ -145,11 +145,6 @@
 
 	/* uefi region can be reused by apps */
 
-	qheebsp_reserved_mem: qheebsp_reserved_region@e0000000 {
-		no-map;
-		reg = <0x0 0xe0000000 0x0 0>;
-	};
-
 	cpusys_vm_mem: cpusys_vm_region@e0600000 {
 		no-map;
 		reg = <0x0 0xe0600000 0x0 0x400000>;
