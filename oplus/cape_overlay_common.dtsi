@@ -49,6 +49,7 @@
 };
 /* OPLUS_ARCH_EXTENDS */
 
+/*
 &soc {
 	//#ifdef CONFIG_OPLUS_FEATURE_PMIC_MONITOR, read pmic info from nvmem(only for xblloader close)
 		oplus-pmic-monitor-log {
@@ -65,12 +66,13 @@
 			oplus,omrg-master = <&CPU4 1555200 1996800>;
 			oplus,omrg-slave = <&CPU0 1440000 1804800>;
 			up_limit_enable;
-			/* down_limit_enable; */
-			/* thermal_enable; */
+			// down_limit_enable;
+			// thermal_enable;
 		};
 	};
 	//#endif
 };
+*/
 //cape-pinctrl.dtsi
 &tlmm {
 	uphall_tri_state_key_active: uphall_tri_state_key_active {
@@ -167,7 +169,8 @@
 
 //#ifdef CONFIG_OPLUS_FEATURE_QCOM_PMICWD
 //pmicwd depend on pon_pbs@800
-	pon_pbs@800 {
+/*
+  pon_pbs@800 {
 		compatible = "qcom,qpnp-power-on";
 		reg = <0x800>;
 		qcom,system-reset;
@@ -177,7 +180,8 @@
 		compatible = "oplus,pmicwd_qpnp-power-on";
 		qcom,pmicwd;
 	};
-//#endif /* CONFIG_OPLUS_FEATURE_QCOM_PMICWD */
+//#endif # CONFIG_OPLUS_FEATURE_QCOM_PMICWD
+*/
 };
 
 &pm8350_gpios {
@@ -246,13 +250,12 @@
 /* #endif OPLUS_FEATURE_DUMP_DEVICE_INFO */
 
 /* #ifdef CONFIG_BOOTLOADER_LOG */
-&reserved_memory {
+/*&reserved_memory {
         /*
-        This size is from
-        boot_images/boot/QcomPkg/SocPkg/Palima/Common/uefiplat.cfg
-        0xA7605000, 0x00008000, "Log Buffer",        AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN
-        so we reserve this for bootloader log
-        */
+         * This size is from
+         * boot_images/boot/QcomPkg/SocPkg/Palima/Common/uefiplat.cfg
+         * 0xA7605000, 0x00008000, "Log Buffer",        AddMem, SYS_MEM, SYS_MEM_CAP, RtData, WRITE_BACK_XN
+         * so we reserve this for bootloader log
         bootloader_log_mem: botloader_mem@0xA7605000 {
                 reg = <0 0xA7605000 0 0x00008000>;
                 label = "bootloader_log_mem";
@@ -265,5 +268,6 @@
                 linux,contiguous-region = <&bootloader_log_mem>;
         };
 };
+*/
 /* #endif CONFIG_BOOTLOADER_LOG */
 

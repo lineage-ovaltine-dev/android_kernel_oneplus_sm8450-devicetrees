@@ -93,7 +93,7 @@
 };
 
 //#ifdef OPLUS_FEATURE_THERMAL_HORAE
-&soc {
+/*&soc {
 	shell_front {
 			compatible = "oplus,shell-temp";
 	};
@@ -106,7 +106,7 @@
 			compatible = "oplus,shell-temp";
 	};
 //#endif OPLUS_FEATURE_THERMAL_HORAE
-};
+};*/
 
 //Add to change cc-out gpio pull down
 &usb3phy_portselect_default {
