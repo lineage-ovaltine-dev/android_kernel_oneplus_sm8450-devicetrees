@@ -49,30 +49,6 @@
 };
 /* OPLUS_ARCH_EXTENDS */
 
-/*
-&soc {
-	//#ifdef CONFIG_OPLUS_FEATURE_PMIC_MONITOR, read pmic info from nvmem(only for xblloader close)
-		oplus-pmic-monitor-log {
-			compatible = "oplus,pmic-monitor-log";
-			nvmem = <&pmk8350_sdam_5>;
-			nvmem-names = "pon_log";
-		};
-	//#endif
-	//#ifdef CONFIG_OPLUS_OMRG
-	oplus-omrg {
-		compatible = "oplus,oplus-omrg";
-		oplus-omrg0 {
-			oplus,divider-cells = <2>;
-			oplus,omrg-master = <&CPU4 1555200 1996800>;
-			oplus,omrg-slave = <&CPU0 1440000 1804800>;
-			up_limit_enable;
-			// down_limit_enable;
-			// thermal_enable;
-		};
-	};
-	//#endif
-};
-*/
 //cape-pinctrl.dtsi
 &tlmm {
 	uphall_tri_state_key_active: uphall_tri_state_key_active {
@@ -166,22 +142,6 @@
 		    linux,code = <KEY_VOLUMEUP>;
 		};
 	};
-
-//#ifdef CONFIG_OPLUS_FEATURE_QCOM_PMICWD
-//pmicwd depend on pon_pbs@800
-/*
-  pon_pbs@800 {
-		compatible = "qcom,qpnp-power-on";
-		reg = <0x800>;
-		qcom,system-reset;
-	};
-
-	pon_pmicwd@800 {
-		compatible = "oplus,pmicwd_qpnp-power-on";
-		qcom,pmicwd;
-	};
-//#endif # CONFIG_OPLUS_FEATURE_QCOM_PMICWD
-*/
 };
 
 &pm8350_gpios {
@@ -224,27 +184,3 @@
 	};
 };
 //#endif /*OPLUS_FEATURE_SECURITY_COMMON*/
-
-/* #ifdef OPLUS_FEATURE_DUMP_DEVICE_INFO */
-&reserved_memory {
-	dump_device_info_mem: device_info_mem@0xA4F00000 {
-		reg = <0 0xA4F00000 0 0x00008000>;
-		label = "dump_device_info_mem";
-	};
-};
-
-&soc {
-	dump_device_info {
-		compatible = "dump_device_info";
-		linux,contiguous-region = <&dump_device_info_mem>;
-	};
-};
-
-&ramoops_mem {
-	alloc-ranges = <0x0 0x00000000 0xffffffff 0xffffffff>;
-	size = <0x0 0x240000>;
-	pmsg-size = <0x200000>;
-	console-size = <0x40000>;
-	mem-type = <2>;
-};
-/* #endif OPLUS_FEATURE_DUMP_DEVICE_INFO */
