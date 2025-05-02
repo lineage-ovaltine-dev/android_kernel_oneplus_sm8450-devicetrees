@@ -80,6 +80,7 @@ else
 dtbo-$(CONFIG_ARCH_RAVELIN) += display/trustedvm-ravelin-sde-display-idp-overlay.dtbo \
 		display/trustedvm-ravelin-sde-display-idp-amoled-overlay.dtbo
 endif
+dtbo-y += oplus/ovaltine-21841-display-cape-overlay.dtbo
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
