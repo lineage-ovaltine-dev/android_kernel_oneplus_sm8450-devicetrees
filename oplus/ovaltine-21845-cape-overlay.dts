@@ -1,0 +1,28 @@
+/dts-v1/;
+/plugin/;
+#include <dt-bindings/oplus/hw-id.h>
+#include "cape_overlay_common.dtsi"
+#include "tp/oplus_tp_overlay_common.dtsi"
+#include "ovaltine_21841_overlay_common.dtsi"
+#include "sensor/ovaltine-oplus-sensor.dtsi"
+#include "oplus_uff/oplus_uff_sm8475.dtsi"
+#include "oplus_chg/oplus-chg-21845.dtsi"
+#include "nfc/ovaltine-nfc-sn110t.dtsi"
+/ {
+	model = "Qualcomm Technologies, Inc. Cape MTP, Ovaltine";
+        compatible = "qcom,cape-mtp", "qcom,cape", "qcom,mtp";
+        qcom,msm-id = <530 0x10000>, <531 0x10000>, <540 0x10000>;
+        qcom,board-id = <0x10008 0>;
+        oplus,project-id = <21842>;
+        oplus,region-id = <3>;
+};
+
+&pm8350b_haptics {
+    qcom,vmax-mv = <1280>;
+    qcom,cl-vmax-mv = <1400>;
+    qcom,lra-period-us = <5882>;
+    qcom,fifo-vmax-mv = <9100>;
+    qcom,old-steady-vmax-mv = <9100>;
+    qcom,cal-data-restore;
+    qcom,vibrator-type = <809>;//ela0809
+};
