@@ -1,7 +1,7 @@
 KBUILD_DTC_INCLUDE += $(srctree)/../sm8450-modules/qcom/opensource/camera-kernel
 
-dtbo-$(CONFIG_ARCH_CAPE) += cape-camera.dtbo
-dtbo-$(CONFIG_ARCH_CAPE) += oplus/ovaltine-21841-camera-cape-overlay.dtbo
+dtbo-$(CONFIG_ARCH_CAPE) += cape-camera.dtbo \
+				 oplus/ovaltine-21841-camera-cape-overlay.dtbo
 
 always-y	:= $(dtbo-y) $(dtb-y)
 subdir-y	:= $(dts-dirs)

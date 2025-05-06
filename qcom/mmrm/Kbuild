@@ -1,3 +1,5 @@
+ifneq ($(CONFIG_OPLUS_DEVICE_DTBS),y)
+
 ifeq ($(CONFIG_ARCH_WAIPIO), y)
 dtbo-y += waipio-mmrm.dtbo
 dtbo-y += waipio-mmrm-test.dtbo
@@ -16,6 +18,9 @@ endif
 
 ifeq ($(CONFIG_ARCH_DIWALI), y)
 dtbo-y += diwali-mmrm.dtbo
+endif
+else
+dtbo-$(CONFIG_ARCH_CAPE) += cape-mmrm.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)

@@ -1,5 +1,8 @@
+ifneq ($(CONFIG_OPLUS_DEVICE_DTBS),y)
+
 ifeq ($(CONFIG_ARCH_WAIPIO), y)
 dtbo-y += waipio-eva.dtbo
+endif
 endif
 
 ifeq ($(CONFIG_ARCH_CAPE), y)

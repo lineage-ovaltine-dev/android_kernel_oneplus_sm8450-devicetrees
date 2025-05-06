@@ -1,3 +1,5 @@
+ifneq ($(CONFIG_OPLUS_DEVICE_DTBS),y)
+
 ifeq ($(CONFIG_TARGET), neo_le)
 dtbo-$(CONFIG_ARCH_NEO) += display/neo-sde.dtbo \
                 display/neo-sde-display-idp-overlay.dtbo \
@@ -80,7 +82,10 @@ else
 dtbo-$(CONFIG_ARCH_RAVELIN) += display/trustedvm-ravelin-sde-display-idp-overlay.dtbo \
 		display/trustedvm-ravelin-sde-display-idp-amoled-overlay.dtbo
 endif
-dtbo-y += oplus/ovaltine-21841-display-cape-overlay.dtbo
+else
+dtbo-$(CONFIG_ARCH_CAPE) += display/cape-sde.dtbo \
+				 oplus/ovaltine-21841-display-cape-overlay.dtbo
+endif
 
 always-y    := $(dtb-y) $(dtbo-y)
 subdir-y    := $(dts-dirs)
