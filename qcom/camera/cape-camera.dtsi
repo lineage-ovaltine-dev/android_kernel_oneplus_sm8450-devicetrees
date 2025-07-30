@@ -954,6 +954,7 @@
 				<&apps_smmu 0x24E0 0x400>;
 			cam-smmu-label = "jpeg";
 			qcom,iommu-dma-addr-pool = <0x100000 0xffe00000>;
+			qcom,iommu-faults = "stall-disable", "non-fatal";
 			dma-coherent;
 			jpeg_iova_mem_map: iova-mem-map {
 				/* IO region is approximately 4.0 GB */
@@ -987,6 +988,7 @@
 				<&apps_smmu 0x2520 0x420>;
 			cam-smmu-label = "icp";
 			qcom,iommu-dma-addr-pool = <0x10c00000 0xee300000>;
+			qcom,iommu-faults = "stall-disable", "non-fatal";
 			iova-region-discard = <0xe0000000 0x800000>;
 			dma-coherent;
 			icp_iova_mem_map: iova-mem-map {
@@ -994,7 +996,7 @@
 					/* Shared region is ~250MB long */
 					iova-region-name = "shared";
 					iova-region-start = <0x800000>;
-					iova-region-len = <0xFC00000>;
+					iova-region-len = <0x16000000>;
 					iova-region-id = <0x1>;
 					status = "ok";
 				};
@@ -1002,7 +1004,7 @@
 				iova-mem-region-fwuncached-region {
 					/* FW uncached region is 7MB long */
 					iova-region-name = "fw_uncached";
-					iova-region-start = <0x10400000>;
+					iova-region-start = <0x16800000>;
 					iova-region-len = <0x700000>;
 					iova-region-id = <0x6>;
 					status = "ok";
@@ -1011,8 +1013,8 @@
 				iova-mem-region-io {
 					/* IO region is approximately 3.8 GB */
 					iova-region-name = "io";
-					iova-region-start = <0x10c00000>;
-					iova-region-len = <0xee300000>;
+					iova-region-start = <0x17000000>;
+					iova-region-len = <0xE7F00000>;
 					iova-region-id = <0x3>;
 					iova-region-discard = <0xe0000000 0x800000>;
 					status = "ok";
@@ -1021,7 +1023,7 @@
 				iova-mem-qdss-region {
 					/* QDSS region is appropriate 1MB */
 					iova-region-name = "qdss";
-					iova-region-start = <0x10b00000>;
+					iova-region-start = <0x16F00000>;
 					iova-region-len = <0x100000>;
 					iova-region-id = <0x5>;
 					qdss-phy-addr = <0x16790000>;
@@ -1038,6 +1040,7 @@
 				<&apps_smmu 0x24A0 0x0400>;
 			cam-smmu-label = "cpas-cdm", "rt-cdm";
 			qcom,iommu-dma-addr-pool = <0x100000 0xffe00000>;
+			qcom,iommu-faults = "stall-disable", "non-fatal";
 			dma-coherent;
 			multiple-client-devices;
 			cpas_cdm_iova_mem_map: iova-mem-map {
