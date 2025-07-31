@@ -39,6 +39,15 @@
 };
 /* OPLUS_ARCH_EXTENDS */
 
+&spmi0_debug_bus {
+	status = "disabled";
+};
+/*  */
+/* &spmi_bus { */
+	/* /delete-node/ qcom,pm8010i@8; */
+	/* /delete-node/ qcom,pm8010j@9; */
+/* }; */
+/*  */
 /* #ifdef OPLUS_ARCH_EXTENDS */
 &video_mem {
 	reg = <0x0 0x9fd00000 0x0 0x700000>;
