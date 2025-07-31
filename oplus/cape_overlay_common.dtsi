@@ -1,7 +1,9 @@
 #include <dt-bindings/regulator/qcom,rpmh-regulator-levels.h>
 
-&apps_rsc {
+#include "../qcom/cape-mtp.dtsi"
+#include "../qcom/waipio-pm8010-spmi.dtsi"
 
+&apps_rsc {
 	//#ifdef OPLUS_FEATURE_FINGERPRINT
 	rpmh-regulator-ldoc11 {
 		compatible = "qcom,rpmh-vrm-regulator";
@@ -42,12 +44,7 @@
 &spmi0_debug_bus {
 	status = "disabled";
 };
-/*  */
-/* &spmi_bus { */
-	/* /delete-node/ qcom,pm8010i@8; */
-	/* /delete-node/ qcom,pm8010j@9; */
-/* }; */
-/*  */
+
 /* #ifdef OPLUS_ARCH_EXTENDS */
 &video_mem {
 	reg = <0x0 0x9fd00000 0x0 0x700000>;
