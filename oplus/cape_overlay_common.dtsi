@@ -162,31 +162,3 @@
 	};
 };
 /*#endif OPLUS_FEATURE_TP_BASIC*/
-
-/*#ifdef OPLUS_FEATURE_SECURITY_COMMON*/
-&firmware {
-	android {
-		vbmeta {
-			parts = "vbmeta,boot,system,vendor,dtbo,recovery,vendor_boot";
-		};
-
-		fstab {
-			vendor {
-				fsmgr_flags = "wait,slotselect,avb";
-			};
-		};
-	};
-};
-/*#endif OPLUS_FEATURE_SECURITY_COMMON*/
-
-/*#ifdef OPLUS_FEATURE_SECURITY_COMMON*/
-&soc {
-	oplus_secure_common {
-		compatible = "oplus,secure_common";
-		oplus,sec_reg_num = <0x221C8604>;
-		oplus,sec_en_anti_reg = <0x221C21B0>;
-		oplus,sec_override1_reg = <0x221C21B0>;
-		oplus,override1_en_value = <0x1>;
-	};
-};
-//#endif /*OPLUS_FEATURE_SECURITY_COMMON*/
