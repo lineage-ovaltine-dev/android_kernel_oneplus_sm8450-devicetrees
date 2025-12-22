@@ -11,6 +11,10 @@
 	reg = <0x0 0x80c00000 0x0 0x100000>;
 };
 
+&slpi_mem {
+	reg = <0x00 0x87f00000 0x00 0x1a00000>;
+};
+
 &qheebsp_reserved_mem {
 	/delete-property/ reg;
 };
